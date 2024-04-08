@@ -2,6 +2,27 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.3.
 
+Folder structure:
+Src-
+app
+task-form
+Contains the component housing the task form that is loaded in a modal, which is responsible for creation and deletion
+task-list
+Contains the component housing the task display. You also get to load the triggers from this point
+Utilities
+Models
+It contains the interface used for the task model  
+ Resuables
+reusable-button
+Contains the component housing the buttons used in the application
+reusable-input
+Contains the reusable input use for task creation
+Services
+Contains the filter services, task service, and utilities service with their corresponding test files
+
+    assets
+        Contains the static images used in the application
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
