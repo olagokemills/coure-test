@@ -1,0 +1,45 @@
+<div [formGroup]="formGroup" class="form-group">
+  <label for="{{ controlName }}"
+    >{{ placeholder }} <span class="text-danger">*</span></label
+  >
+
+  <ng-container [ngSwitch]="type">
+    <div *ngSwitchCase="'select'">
+      <select
+        [id]="controlName"
+        [formControlName]="controlName"
+        class="form-select"
+      >
+        <option>Select {{ controlName }}</option>
+        <option
+          *ngFor="let item of optionsList"
+          [selected]="item === selectedOption"
+        >
+          {{ item }}
+        </option>
+      </select>
+    </div>
+    <div *ngSwitchCase="'text-area'">
+      <textarea
+        [id]="controlName"
+        [formControlName]="controlName"
+        rows="3"
+        class="form-control"
+      ></textarea>
+    </div>
+    <div *ngSwitchDefault>
+      <input
+        [id]="controlName"
+        [formControlName]="controlName"
+        [placeholder]="placeholder"
+        [type]="type"
+        class="form-control"
+      />
+    </div>
+  </ng-container>
+
+  <!-- Display error message if the field is invalid -->
+  <div *ngIf="shouldDisplayError()" class="text-danger">
+    {{ getErrorMessage() }}
+  </div>
+</div>

@@ -1,0 +1,49 @@
+button {
+  color: #ffffff;
+  background-color: #162d4c;
+  border-radius: 4px;
+  width: 200px;
+  height: 45px;
+  font-size: 14px;
+  &:hover {
+    color: white;
+    background-color: #003366;
+    border-color: #2f3787;
+    .sm-icon {
+      width: 18px;
+    }
+  }
+  &.btn-danger {
+    background-color: #dc3545;
+    color: #ebebeb;
+    border-radius: 20px;
+    &:hover {
+      border: 0;
+    }
+  }
+  &.btn-cancel {
+    background-color: #ffffff;
+    color: #162d4c;
+    border-radius: 20px;
+    border-color: #2f3787;
+  }
+}
+.dot {
+  width: 10px;
+  height: 10px;
+  background-color: white;
+  border-radius: 50%;
+  animation: wander 2s ease-in-out infinite;
+  margin-right: 10px;
+  display: inline-block;
+}
+
+@keyframes wander {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(30px);
+  }
+}

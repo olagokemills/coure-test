@@ -1,0 +1,85 @@
+<div class="task-wrapper">
+  <div class="text-center mb-5">
+    <h3>
+      Welcome To Task Valley!
+      <img
+        class="grow-on-hover"
+        width="10%"
+        src="https://png.pngtree.com/png-vector/20220907/ourmid/pngtree-beautiful-summer-sunset-vector-illustration-png-image_6141750.png"
+      />
+    </h3>
+  </div>
+  <div class="top-bar">
+    <div>
+      <div class="form-holder">
+        <label>Filter By</label>
+        <div class="d-flex">
+          <select
+            (change)="onFilterChange('priority', $event)"
+            class="form-select"
+          >
+            <option disabled>Filter by Priority</option>
+            <option value="">All</option>
+            <option value="High">High</option>
+            <option value="Medium">Medium</option>
+            <option value="Low">Low</option>
+          </select>
+          <select
+            (change)="onFilterChange('status', $event)"
+            class="form-select"
+          >
+            <option disabled>Filter by Status</option>
+            <option value="">All</option>
+            <option value="Pending">Pending</option>
+            <option value="In-Progress">In Progress</option>
+            <option value="Completed">Completed</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div>
+      <button class="btn" (click)="OpenModal('Create')">
+        Add new task <img src="assets/img/plus.svg" class="xsm-icon" />
+      </button>
+    </div>
+  </div>
+  <div class="table-responsive">
+    <table class="table table-hover">
+      <thead>
+        <th>Task</th>
+        <th>Description</th>
+        <th>Priority</th>
+        <th>Status</th>
+        <th>Action</th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of filteredTasks">
+          <td>{{ item.title }}</td>
+          <td>{{ item.description }}</td>
+          <td>{{ item.priority }}</td>
+          <td>
+            <span
+              ><span [ngClass]="returnClass(item.status)">{{
+                item.status
+              }}</span></span
+            >
+          </td>
+          <td>
+            <span class="px-2">
+              <img src="assets/img/trash-2.svg" class="xsm-icon" />
+            </span>
+            <span class="px-2">
+              <img src="assets/img/edit-2.svg" class="xsm-icon" />
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <ng-container *ngIf="!this.filteredTasks.length">
+      <div class="text-center p-5">
+        <img src="assets/img/frown.svg" class="lg-icon grow-on-hover" />
+        <p>No tasks found, please create one</p>
+      </div>
+    </ng-container>
+  </div>
+</div>

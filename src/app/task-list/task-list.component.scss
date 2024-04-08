@@ -1,0 +1,35 @@
+.task-wrapper {
+  width: 40rem;
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+  .xsm-icon {
+    width: 16px;
+  }
+  .table-responsive {
+    padding-top: 1rem;
+    td {
+      padding: 1rem 0.75rem;
+      font-size: 12px;
+      text-align: left;
+    }
+    .lg-icon {
+      width: 7em;
+    }
+  }
+}
+
+@media only screen and (max-width: 427px) {
+  .task-wrapper {
+    width: 100%;
+    overflow-x: scroll;
+  }
+}
+.grow-on-hover {
+  transition: transform 0.3s ease; /* Smooth transition */
+}
+.grow-on-hover:hover {
+  transform: scale(1.1) rotate(360deg); /* Scale up by 10% on hover */
+}
